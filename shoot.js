@@ -51,29 +51,7 @@ AFRAME.registerComponent("bullets", {
     });
   },
   removeBullet: function (e) {
-    var scene = document.querySelector("#scene");
     
-    //bullet element
-    var element = e.detail.target.el;
-
-    //element which is hit
-    var elementHit = e.detail.body.el;
-
-    if (elementHit.id.includes("enemy")) {
-      
-      var countTankEl = document.querySelector("#countTank");
-      var tanksFired = parseInt(countTankEl.getAttribute("text").value);
-      tanksFired -= 1;
-
-      countTankEl.setAttribute("text", {
-        value: tanksFired
-      });
-
-      if (tanksFired === 0) {
-        var txt = document.querySelector("#completed");
-        txt.setAttribute("visible", true);       
-        
-      }
       scene.removeChild(elementHit);
     }
     //remove event listener
